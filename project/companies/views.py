@@ -45,7 +45,7 @@ class  EmployeeList(viewsets.ModelViewSet):
     model= Employee
     serializer_class = EmployeeSerializer
 
-    def get_queryset(self, pk=None):
+    def get_queryset(self):
         return Employee.objects.all()
 
     def create(self, request, *args, **kwargs): 
@@ -75,3 +75,5 @@ class EmployeeDetail(viewsets.ModelViewSet):
         instance= self.get_object(pk=pk)
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    
