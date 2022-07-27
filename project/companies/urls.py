@@ -27,8 +27,8 @@ from rest_framework import routers
 # })
 
 router= routers.DefaultRouter()
-router.register(r'companies', CompanyList, basename='companies')
-# router.register(r'employees', EmployeeList, basename='employees')
+router.register(r'companies', CompanyList, basename='companies-list')
+router.register(r'employees', EmployeeList, basename='employees-list')
 
 # router.register(r'companies/company_id', CompanyDetail, basename='companies-detail')
 # router.register(r'companies/company_id/employees', EmployeeList, basename='employees-list')
@@ -37,8 +37,8 @@ router.register(r'companies', CompanyList, basename='companies')
 
 urlpatterns=[
     path('', include(router.urls)),
-    # path('companies/', company_list),
-    # path('companies/<int:pk>/', company_detail),
+    # path('companies/'),
+    # path('companies/<int:company_id>/')
     # path('employees/', employee_list),
     # path('employees/<int:pk>/', employee_detail),
 ]

@@ -11,7 +11,7 @@ class Company(models.Model):
     created= models.DateTimeField('created')
 
     def __str__(self):
-        return self.name
+        return f" Company name: {self.name} -- Location: {self.located} -- Description: {self.descriptions}"
     def published(self):
         now= timezone.now()
         return now-datetime.timedelta(days=1) <= self.created <= now
@@ -29,7 +29,7 @@ class Employee(models.Model):
     created= models.DateTimeField('created')
     
     def __str__(self):
-        return f"Name: {self.name} -- Email: {self.email}"
+        return f"Username: {self.username} -- Email: {self.email} --  Full name: {self.full_name} -- Age: {self.age} -- City: {self.city} -- Phone: {self.phone_number}"
     def published(self):
         now= timezone.now()
         return now-datetime.timedelta(days=1) <= self.created <= now   

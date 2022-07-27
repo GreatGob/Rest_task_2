@@ -1,3 +1,4 @@
+from unicodedata import name
 from .models import *
 from .serializers import *
 
@@ -24,7 +25,7 @@ class CompanyDetail(viewsets.ModelViewSet):
     serializer_class= CompanySerializer
 
     def retrieve(self, pk= None):
-        instance= self.get_object()
+        instance= self.get_object(pk=pk)
         return Response(self.serializer_class(instance).data, status= status.HTTP_200_OK)
     
     def update(self, pk= None):
@@ -45,7 +46,7 @@ class  EmployeeList(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
 
     def get_queryset(self, pk=None):
-        return Employee.objects.get()
+        return Employee.objects.all()
 
     def create(self, request, *args, **kwargs): 
         serializer= self.serializer_class(data=request.data)
