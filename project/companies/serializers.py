@@ -7,6 +7,7 @@ class CompanySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class EmployeeSerializer(serializers.ModelSerializer):
+    company= CompanySerializer(many=True)
     class Meta: 
         model = Employee
         fields = '__all__'
